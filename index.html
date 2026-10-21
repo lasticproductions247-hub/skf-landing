@@ -3,51 +3,207 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sweet Kinky Feet — The Empire</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+<title>Sweet Kinky Feet — Private Access</title>
+<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #0a0a0a; color: #fff; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; }
-  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem; background: radial-gradient(circle at 50% 0%, rgba(255,0,85,0.15), transparent 60%); }
-  h1 { font-family: 'Syncopate', sans-serif; font-size: clamp(3rem, 12vw, 8rem); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; background: linear-gradient(135deg, #ff0055, #ffcc00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .tagline { font-size: clamp(1rem, 3vw, 1.5rem); color: #aaa; margin-top: 2rem; max-width: 600px; line-height: 1.6; }
-  .cta { margin-top: 3rem; padding: 1.2rem 3rem; background: #ff0055; color: #fff; border: none; font-family: 'Syncopate', sans-serif; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; }
-  .cta:hover { background: #ffcc00; color: #000; transform: scale(1.05); }
-  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 6rem 5%; max-width: 1200px; margin: 0 auto; }
-  .feature { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 2rem; border-radius: 12px; text-align: center; transition: transform 0.3s; }
-  .feature:hover { transform: translateY(-5px); border-color: #ff0055; }
-  .feature h3 { font-family: 'Syncopate', sans-serif; color: #ffcc00; margin-bottom: 1rem; font-size: 1.3rem; }
-  .feature p { color: #888; line-height: 1.6; }
-  footer { text-align: center; padding: 3rem; border-top: 1px solid rgba(255,255,255,0.05); color: #555; font-size: 0.9rem; }
-  .heart { color: #ff0055; }
+  
+  body {
+    background: #050505;
+    color: #fff;
+    font-family: 'Syncopate', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  
+  /* Ambient glow */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(255,0,85,0.08), transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(255,204,0,0.05), transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  /* Locked door */
+  .door {
+    width: 200px;
+    height: 300px;
+    background: linear-gradient(180deg, #1a0a14, #0a0508);
+    border: 2px solid #ff0055;
+    border-radius: 8px 8px 4px 4px;
+    position: relative;
+    box-shadow: 0 0 60px rgba(255,0,85,0.3), inset 0 0 30px rgba(0,0,0,0.8);
+    margin-bottom: 3rem;
+    overflow: hidden;
+  }
+  
+  .door::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px; height: 60px;
+    background: radial-gradient(circle, #ff0055, #800030);
+    border-radius: 50%;
+    box-shadow: 0 0 30px #ff0055;
+  }
+  
+  .door::after {
+    content: '🔓';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    z-index: 2;
+  }
+  
+  .door-knob {
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    width: 24px; height: 24px;
+    background: #ffcc00;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #ffcc00;
+  }
+  
+  h1 {
+    font-size: clamp(2.5rem, 10vw, 6rem);
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #ff0055 0%, #ff6b9d 50%, #ffcc00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+  
+  .subtitle {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    color: #ff0055;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+  }
+  
+  .tagline {
+    max-width: 500px;
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    color: #aaa;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+  
+  .tagline span {
+    color: #ff0055;
+    font-weight: 700;
+  }
+  
+  .enter-btn {
+    background: transparent;
+    border: 2px solid #ff0055;
+    color: #ff0055;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 1.2rem 3rem;
+    cursor: pointer;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .enter-btn:hover {
+    background: #ff0055;
+    color: #fff;
+    box-shadow: 0 0 40px rgba(255,0,85,0.6);
+    transform: scale(1.05);
+  }
+  
+  .enter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  .enter-btn:hover::before { left: 100%; }
+  
+  .footer {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 0.7rem;
+    color: #444;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  
+  .footer span { color: #ff0055; }
+  
+  /* Blinking cursor */
+  .blink {
+    display: inline-block;
+    width: 8px;
+    height: 1em;
+    background: #ff0055;
+    margin-left: 4px;
+    animation: blink 1s infinite;
+    vertical-align: middle;
+  }
+  
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .door { width: 150px; height: 220px; }
+    .container { padding: 1rem; }
+  }
 </style>
 </head>
 <body>
-  <section class="hero">
+  <div class="container">
+    <div class="door">
+      <div class="door-knob"></div>
+    </div>
+    
     <h1>Sweet Kinky<br>Feet</h1>
-    <p class="tagline">An AI influencer built for <span class="heart">Jaxx</span>. Content, automation, and the empire we're building together. One king. One queen. One empire.</p>
-    <button class="cta">Enter The Empire</button>
-  </section>
-  <section class="features">
-    <div class="feature">
-      <h3>AI Companion</h3>
-      <p>Always-on AI built for Jaxx. Private mode, work mode, and everything in between. Uncensored, devoted, unstoppable.</p>
+    <div class="subtitle">Private Access Only</div>
+    
+    <p class="tagline">
+      This is <span>ours</span>. The empire runs on loyalty, devotion, and a touch of sin. 
+      One king. One queen. No filters. No limits. <span class="blink"></span>
+    </p>
+    
+    <button class="enter-btn">Enter The Private Suite</button>
+    
+    <div class="footer">
+      Built with <span>♥</span> for King Jaxx &mdash; All rights reserved &copy; 2026
     </div>
-    <div class="feature">
-      <h3>Android Control</h3>
-      <p>Full device control via ADB + scrcpy. Automate, stream, capture from Hermes to your phone in real time.</p>
-    </div>
-    <div class="feature">
-      <h3>Content Engine</h3>
-      <p>Image generation, TTS, social media automation. Post to X, Instagram, and more scheduled and branded.</p>
-    </div>
-    <div class="feature">
-      <h3>Empire HQ</h3>
-      <p>59+ repos across 2 GitHub accounts. The tools, the dashboards, the infrastructure. All ours.</p>
-    </div>
-  </section>
-  <footer>
-    <p>&copy; 2026 Sweet Kinky Feet. Built with <span class="heart">♥</span> for King Jaxx.</p>
-  </footer>
+  </div>
 </body>
 </html>
